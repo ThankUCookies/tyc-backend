@@ -9,6 +9,14 @@
 - Code formatting is automated with **prettier (v1.x)**
 - **TSLint (v5.12)** is used for linting the typescript code
 
+## Architectural Details
+
+3 Layered Architecture is followed
+
+![architecture](https://imgur.com/BKBdLoB.png)
+
+The IOC container is located in **src/ioc/service-locator.ts**
+
 ## Development Setup
 
 1. Clone the repo
