@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",                          
+    "lib": ["es6","dom"],
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "*.spec.ts"
+  ]
+}
