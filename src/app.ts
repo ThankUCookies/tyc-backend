@@ -4,6 +4,9 @@ import fs from "fs";
 import path from "path";
 
 // Routes
+import serviceLocator from "./ioc/service-locator";
+import TYPES from "./ioc/types";
+import IDatabase from "./resource-access/contracts/db";
 import userRoute from "./routes/user";
 
 // Set up .env file path
@@ -15,7 +18,15 @@ if (fs.existsSync(envPath)) {
   });
 }
 
+// TODO: handle db connection errors
+// Setup the db connection
+const db = serviceLocator.get<IDatabase>(TYPES.Database);
+db.connect();
+
 const app = express();
+
+// Setup middlewares
+app.use(express.json());
 
 // Setup routes
 app.use("/auth", userRoute);

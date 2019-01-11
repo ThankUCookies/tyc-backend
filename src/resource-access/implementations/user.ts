@@ -5,10 +5,7 @@ import { IUserResourceAccess } from "../contracts/user";
 
 @injectable()
 export class UserResourceAccess implements IUserResourceAccess {
-  public getUser(userName: string): User {
-    return {
-      PasswordHash: "password-hash",
-      UserName: userName,
-    };
+  public async getUser(userName: string): Promise<User | null> {
+    return await User.findOne({ where: { userName } });
   }
 }

@@ -15,10 +15,13 @@ export class UserBusinessAccess implements IUserBusinessAccess {
     this.userResourceAccess = userResourceAccess;
   }
 
-  public authenticate(userName: string, password: string): boolean {
-    const user: User = this.userResourceAccess.getUser(userName);
-
-    if (user.UserName === userName && user.PasswordHash === password) {
+  public async authenticate(
+    userName: string,
+    password: string,
+  ): Promise<boolean> {
+    const user: User | null = await this.userResourceAccess.getUser(userName);
+    // TODO: hash the password before comparing
+    if (user && user.userName === userName && user.passwordHash === password) {
       return true;
     } else {
       return false;
