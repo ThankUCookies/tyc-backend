@@ -10,7 +10,7 @@ const userBusinessAccess: IUserBusinessAccess = serviceLocator.get<
 >(TYPES.UserBusinessAccess);
 
 export const JwtVerifyCallback = async (payload: any, done: any) => {
-  const userName = payload;
+  const { userName } = payload;
 
   try {
     const user: User | null = await userBusinessAccess.exists(userName);
@@ -25,11 +25,12 @@ export const JwtVerifyCallback = async (payload: any, done: any) => {
   }
 };
 
+// TODO: seperate out jwt secret into env variable
 passport.use(
   new Strategy(
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: process.env.JWT_SECRET || "secret",
+      secretOrKey: "secret",
     },
     JwtVerifyCallback,
   ),

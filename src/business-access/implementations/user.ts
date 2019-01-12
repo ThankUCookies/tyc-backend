@@ -23,7 +23,8 @@ export class UserBusinessAccess implements IUserBusinessAccess {
     const user: User | null = await this.userResourceAccess.getUser(userName);
     // TODO: hash the password before comparing
     if (user && user.userName === userName && user.passwordHash === password) {
-      return jwt.sign(user.userName, process.env.JWT_SECRET || "secret");
+      // TODO: seperate out jwt secret into env variable
+      return jwt.sign({ userName }, "secret", { expiresIn: "1d" });
     } else {
       return false;
     }
