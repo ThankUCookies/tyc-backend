@@ -18,9 +18,12 @@ userRoute.post(
     if (errors.isEmpty()) {
       const userName: string = req.body.userName;
       const password: string = req.body.password;
-
-      if (await userBusinessAccess.authenticate(userName, password)) {
-        res.json({ token: "some token" });
+      const token: string | boolean = await userBusinessAccess.authenticate(
+        userName,
+        password,
+      );
+      if (token) {
+        res.json({ token });
       } else {
         res.status(401);
         res.send();

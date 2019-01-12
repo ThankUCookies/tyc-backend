@@ -1,4 +1,5 @@
 import { inject, injectable } from "inversify";
+import jwt from "jsonwebtoken";
 import "reflect-metadata";
 import TYPES from "../../ioc/types";
 import { User } from "../../models/user";
@@ -18,13 +19,19 @@ export class UserBusinessAccess implements IUserBusinessAccess {
   public async authenticate(
     userName: string,
     password: string,
-  ): Promise<boolean> {
+  ): Promise<string | boolean> {
     const user: User | null = await this.userResourceAccess.getUser(userName);
     // TODO: hash the password before comparing
     if (user && user.userName === userName && user.passwordHash === password) {
-      return true;
+      return jwt.sign(user.userName, process.env.JWT_SECRET || "secret");
     } else {
       return false;
     }
+  }
+
+  public async exists(userName: string): Promise<User | null> {
+    const user: User | null = await this.userResourceAccess.getUser(userName);
+
+    return user;
   }
 }
