@@ -1,3 +1,4 @@
+import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import fs from "fs";
@@ -25,6 +26,14 @@ const db = serviceLocator.get<IDatabase>(TYPES.Database);
 db.connect();
 
 const app = express();
+
+// Setup CORS
+app.use(
+  cors({
+    allowedHeaders: "*",
+    origin: "*",
+  }),
+);
 
 // Setup authenitcation strategies
 const JwtAuthStrategy = PassportJwtStrategy.authenticate("jwt", {
