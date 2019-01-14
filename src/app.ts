@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 
 // Routes
-import { PassportJwtStrategy } from "./auth-strategies/passport-jwt";
+import { PassportJwtStrategy } from "./auth-strategies/password-jwt/passport-jwt";
 import serviceLocator from "./ioc/service-locator";
 import TYPES from "./ioc/types";
 import IDatabase from "./resource-access/contracts/db";

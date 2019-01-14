@@ -1,10 +1,10 @@
 import { inject, injectable } from "inversify";
 import jwt from "jsonwebtoken";
 import "reflect-metadata";
-import TYPES from "../../ioc/types";
-import { User } from "../../models/user";
-import { IUserResourceAccess } from "../../resource-access/contracts/user";
-import { IUserBusinessAccess } from "../contracts/user";
+import TYPES from "../../../ioc/types";
+import { User } from "../../../models/user";
+import { IUserResourceAccess } from "../../../resource-access/contracts/user";
+import { IUserBusinessAccess } from "../../contracts/user";
 
 @injectable()
 export class UserBusinessAccess implements IUserBusinessAccess {

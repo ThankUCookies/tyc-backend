@@ -9,7 +9,7 @@
     "tsc:watch": "tsc --watch && nodemon",
     "tsc": "tsc",
     "coverage": "jest --coverage",
-    "lint": "tslint --fix ./src/**.ts",
+    "lint": "tslint --fix **/*.ts",
     "prettify": "prettier --write",
     "start": "concurrently --kill-others \"npm run tsc:watch\" nodemon"
   },
