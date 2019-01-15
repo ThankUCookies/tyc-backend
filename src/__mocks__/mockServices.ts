@@ -1,6 +1,6 @@
-import { IUserBusinessAccess } from "../src/business-access/contracts/user";
-import serviceLocator from "../src/ioc/service-locator";
-import TYPES from "../src/ioc/types";
+import { IUserBusinessAccess } from "../business-access/contracts/user";
+import serviceLocator from "../ioc/service-locator";
+import TYPES from "../ioc/types";
 import { UserBusinessAccessMock } from "./business-access/user";
 
 export function mockServices() {
