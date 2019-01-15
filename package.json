@@ -15,7 +15,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "npm test",
       "npm run prettify",
       "npm run lint",
       "git add"
