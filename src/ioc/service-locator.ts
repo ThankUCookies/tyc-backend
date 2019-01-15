@@ -6,7 +6,7 @@ import { UserBusinessAccess } from "../business-access/implementations/user/user
 import IDatabase from "../resource-access/contracts/db";
 import { IUserResourceAccess } from "../resource-access/contracts/user";
 import { Database } from "../resource-access/implementations/db/db";
-import { UserResourceAccess } from "../resource-access/implementations/user";
+import { UserResourceAccess } from "../resource-access/implementations/user/user";
 
 const serviceLocator = new Container();
 serviceLocator
