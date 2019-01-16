@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["es6", "dom"],
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDirs": ["src", "__mocks__", "__test__"],
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,

@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
-import serviceLocator from "../../ioc/service-locator";
-import TYPES from "../../ioc/types";
-import { User } from "../../models/user";
-import IDatabase from "../../resource-access/contracts/db";
+import serviceLocator from "../../src/ioc/service-locator";
+import TYPES from "../../src/ioc/types";
+import { User } from "../../src/models/user";
+import IDatabase from "../../src/resource-access/contracts/db";
 
 describe("User", () => {
   let user: User;

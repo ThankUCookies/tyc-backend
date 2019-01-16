@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
-import { IUserBusinessAccess } from "../../business-access/contracts/user";
-import { User } from "../../models/user";
+import { User } from "../models/user";
+import { IUserBusinessAccess } from "./contracts/user";
 
 @injectable()
 export class UserBusinessAccessMock implements IUserBusinessAccess {

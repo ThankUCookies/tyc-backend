@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
-import serviceLocator from "../../ioc/service-locator";
-import TYPES from "../../ioc/types";
-import IDatabase from "../../resource-access/contracts/db";
+import serviceLocator from "../../src/ioc/service-locator";
+import TYPES from "../../src/ioc/types";
+import IDatabase from "../../src/resource-access/contracts/db";
 
 describe("Database", () => {
   let db: IDatabase;

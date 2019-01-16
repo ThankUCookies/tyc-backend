@@ -1,4 +1,4 @@
-import { mockServices } from "../../__mocks__/mockServices";
+import { mockServices } from "../../../__mocks__/mockServices";
 
 mockServices();
 
