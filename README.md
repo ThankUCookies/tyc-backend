@@ -1,5 +1,7 @@
 # Thank You Cookies
 
+[![Build Status](http://jenkins.thankufoods.com/buildStatus/icon?job=tyc-backend-pipeline&style=flat)](http://jenkins.thankufoods.com/blue/organizations/jenkins/tyc-backend-pipeline/activity)
+
 ## Technical Details
 
 - **Yarn** used instead of npm due to known advantages of yarn over npm
