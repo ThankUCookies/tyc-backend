@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import serviceLocator from "../../src/ioc/service-locator";
 import TYPES from "../../src/ioc/types";
 import { User } from "../../src/models/user";

@@ -17,6 +17,7 @@ describe("Database", () => {
 
       sequelize.authenticate().then(() => {
         expect(1).toBe(1);
+        sequelize.close();
         done();
       });
     });
