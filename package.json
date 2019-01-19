@@ -14,7 +14,7 @@
     "lint": "tslint --fix **/*.ts",
     "prettify": "prettier --write",
     "dev": "concurrently --kill-others \"npm run build:watch\" nodemon",
-    "start": "node ./src/app.js"
+    "start": "node ./app.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
