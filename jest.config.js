@@ -4,5 +4,6 @@ module.exports = {
   testEnvironment: 'node',
   verbose: true,
   setupFiles: ['./__test__/setup.ts'],
-  coveragePathIgnorePatterns: ['setup.ts']
+  coveragePathIgnorePatterns: ['setup.ts'],
+  coverageReporters: ['lcov', 'cobertura']
 };
