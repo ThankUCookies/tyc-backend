@@ -7,13 +7,14 @@
     "test": "jest --passWithNoTests",
     "test:ci": "jest --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch --passWithNoTests",
-    "tsc:watch": "tsc --watch && nodemon",
-    "tsc": "tsc",
+    "build:watch": "tsc --watch && nodemon",
     "build": "tsc",
+    "build:prod": "tsc --build tsconfig.prod.json",
     "coverage": "jest --coverage",
     "lint": "tslint --fix **/*.ts",
     "prettify": "prettier --write",
-    "start": "concurrently --kill-others \"npm run tsc:watch\" nodemon"
+    "dev": "concurrently --kill-others \"npm run build:watch\" nodemon",
+    "start": "node ./src/app.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
-import { User } from "../models/user";
-import { IUserResourceAccess } from "./contracts/user";
+import { User } from "../../src/models/user";
+import { IUserResourceAccess } from "../../src/resource-access/contracts/user";
 
 @injectable()
 export class UserResourceAccess implements IUserResourceAccess {
