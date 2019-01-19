@@ -81,3 +81,5 @@ typings/
 
 # Typescript compiled assets
 dist
+
+__test__/test-results.xml
