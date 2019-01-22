@@ -1,0 +1,10 @@
+{
+  "defaultEnv": "env",
+  "env": {
+    "driver": "mysql",
+    "host": { "ENV": "DB_HOST" },
+    "user": { "ENV": "DB_USERNAME" },
+    "password": { "ENV": "DB_PWD" },
+    "database": { "ENV": "DB_NAME" }
+  }
+}

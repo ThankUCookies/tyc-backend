@@ -54,6 +54,13 @@ pipeline {
                 archiveArtifacts 'dist.zip'
            }
         }
+        stage('apply db migrations') {
+           steps {
+                nodejs('v8') {
+                    sh 'npm run db-migrate:up'                    
+                }
+           }
+        }
         stage('publish to aws elastic beanstalk') {
             steps {
                 step([$class: 'AWSEBDeploymentBuilder', applicationName: 'tyc-web-api', awsRegion: 'ap-south-1', bucketName: 'tyc-web-api-bucket', checkHealth: true, credentialId: 'aws.tyc', environmentName: 'tyc-staging-env', excludes: '', includes: '', keyPrefix: '', maxAttempts: 30, rootObject: 'dist', sleepTime: 90, versionDescriptionFormat: 'Release from build ${BUILD_ID}', versionLabelFormat: '${BUILD_ID}', zeroDowntime: false])
