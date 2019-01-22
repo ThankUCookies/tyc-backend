@@ -17,7 +17,9 @@ exports.setup = function(options, seedLink) {
 exports.up = function(db) {
   return db.createTable('transaction-type', {
     id: { type: 'int', primaryKey: true, autoIncrement: true, unsigned: true },
-    name: { type: 'string', notNull: true }
+    name: { type: 'string', notNull: true },
+    createdAt: { type: 'datetime' },
+    updatedAt: { type: 'datetime' }
   });
 };
 

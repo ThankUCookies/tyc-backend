@@ -35,7 +35,9 @@ exports.up = function(db) {
       type: 'int',
       unsigned: true,
       notNull: true
-    }
+    },
+    createdAt: { type: 'datetime' },
+    updatedAt: { type: 'datetime' }
   });
 };
 

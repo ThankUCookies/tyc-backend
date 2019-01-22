@@ -16,12 +16,9 @@ export class UserBusinessAccess implements IUserBusinessAccess {
     this.userResourceAccess = userResourceAccess;
   }
 
-  public async authenticate(
-    userName: string,
-    password: string,
-  ): Promise<string | boolean> {
+  public async authenticate(userName: string): Promise<string | boolean> {
     const user: User | null = await this.userResourceAccess.getUser(userName);
-    if (user && user.userName === userName && user.comparePassword(password)) {
+    if (user && user.userName === userName) {
       // TODO: seperate out jwt secret into env variable
       return jwt.sign({ userName }, "secret", { expiresIn: "1d" });
     } else {

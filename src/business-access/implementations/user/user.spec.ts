@@ -12,12 +12,10 @@ import { UserBusinessAccess } from "./user";
 describe("UserBusinessAccess", () => {
   let userBusinessAccess: IUserBusinessAccess;
   let userName: string;
-  let password: string;
   let userResourceAccess: IUserResourceAccess;
 
   beforeEach(() => {
     userName = "someone";
-    password = "somepassword";
     userResourceAccess = serviceLocator.get<IUserResourceAccess>(
       TYPES.UserResourceAccess,
     );
@@ -38,7 +36,7 @@ describe("UserBusinessAccess", () => {
     it("should call getUser on resource access with `userName`", async () => {
       userResourceAccess.getUser = jest.fn();
 
-      await userBusinessAccess.authenticate(userName, password);
+      await userBusinessAccess.authenticate(userName);
 
       expect(userResourceAccess.getUser).toHaveBeenCalledWith(userName);
     });
@@ -46,7 +44,7 @@ describe("UserBusinessAccess", () => {
     it("should return false when the userName or password is incorrect", async () => {
       userResourceAccess.getUser = jest.fn().mockResolvedValue(null);
 
-      const token = await userBusinessAccess.authenticate(userName, password);
+      const token = await userBusinessAccess.authenticate(userName);
 
       expect(token).toBeFalsy();
     });
@@ -61,7 +59,7 @@ describe("UserBusinessAccess", () => {
 
       jwt.sign = jest.fn();
 
-      await userBusinessAccess.authenticate(userName, password);
+      await userBusinessAccess.authenticate(userName);
 
       expect(jwt.sign).toHaveBeenCalledWith({ userName }, "secret", {
         expiresIn: "1d",

@@ -18,7 +18,9 @@ exports.up = function(db) {
   return db.createTable('events', {
     id: { type: 'int', primaryKey: true, autoIncrement: true, unsigned: true },
     name: { type: 'string', notNull: true },
-    status: { type: 'string', notNull: true }
+    status: { type: 'string', notNull: true },
+    createdAt: { type: 'datetime' },
+    updatedAt: { type: 'datetime' }
   });
 };
 

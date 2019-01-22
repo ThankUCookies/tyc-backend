@@ -59,7 +59,9 @@ exports.up = function(db) {
         },
         mapping: 'id'
       }
-    }
+    },
+    createdAt: { type: 'datetime' },
+    updatedAt: { type: 'datetime' }
   });
 };
 

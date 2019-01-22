@@ -11,16 +11,14 @@ const userBusinessAccess: IUserBusinessAccess = serviceLocator.get<
 
 userRoute.post(
   "/login",
-  [body("userName").exists(), body("password").exists()],
+  [body("userName").exists()],
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
       const userName: string = req.body.userName;
-      const password: string = req.body.password;
       const token: string | boolean = await userBusinessAccess.authenticate(
         userName,
-        password,
       );
       if (token) {
         res.json({ token });
