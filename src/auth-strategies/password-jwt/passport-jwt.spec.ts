@@ -33,7 +33,7 @@ describe("PassportJwtStrategy", () => {
     expect(userBusinessAccess.exists).toHaveBeenCalledWith(payload.userName);
   });
 
-  it("it should call done(null, user) when the user exists", async () => {
+  it("should call done(null, user) when the user exists", async () => {
     userBusinessAccess.exists = jest.fn().mockResolvedValue(user);
     const verifyCallback = JwtVerifyCallback(userBusinessAccess);
     const callback = jest.fn();
@@ -43,7 +43,7 @@ describe("PassportJwtStrategy", () => {
     expect(callback).toHaveBeenCalledWith(null, user);
   });
 
-  it("it should call done(null, false) when the user does not exists", async () => {
+  it("should call done(null, false) when the user does not exists", async () => {
     userBusinessAccess.exists = jest.fn().mockResolvedValue(null);
     const verifyCallback = JwtVerifyCallback(userBusinessAccess);
     const callback = jest.fn();
@@ -53,7 +53,7 @@ describe("PassportJwtStrategy", () => {
     expect(callback).toHaveBeenCalledWith(null, false);
   });
 
-  it("it should call done(err, false) when there is an error", async () => {
+  it("should call done(err, false) when there is an error", async () => {
     userBusinessAccess.exists = jest.fn().mockRejectedValue(err);
     const verifyCallback = JwtVerifyCallback(userBusinessAccess);
     const callback = jest.fn();
