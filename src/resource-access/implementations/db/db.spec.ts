@@ -11,6 +11,9 @@ jest.mock("sequelize-typescript", () => ({
 jest.mock("../../../models/user", () => ({
   User: {},
 }));
+jest.mock("../../../models/transaction-type", () => ({
+  Transaction: {},
+}));
 
 describe("Database", () => {
   describe("connect()", () => {

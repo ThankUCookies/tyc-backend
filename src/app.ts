@@ -4,11 +4,13 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 
-// Routes
 import { PassportJwtStrategy } from "./auth-strategies/password-jwt/passport-jwt";
 import serviceLocator from "./ioc/service-locator";
 import TYPES from "./ioc/types";
 import IDatabase from "./resource-access/contracts/db";
+
+// Routes
+import transactionRoute from "./routes/transaction";
 import userRoute from "./routes/user";
 
 // Set up .env file path
@@ -45,11 +47,9 @@ app.use(express.json());
 
 // Setup routes
 app.use("/auth", userRoute);
-app.use("/profile", JwtAuthStrategy, (req, res) => {
-  res.send("profile");
-});
+app.use("/transactions", JwtAuthStrategy, transactionRoute);
 
 // Start the server
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || "3000", () => {
   console.log(`server running at port ${process.env.PORT}`);
 });

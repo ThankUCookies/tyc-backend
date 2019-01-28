@@ -4,7 +4,7 @@ import { User } from "../../src/models/user";
 
 @injectable()
 export class UserBusinessAccessMock implements IUserBusinessAccess {
-  public authenticate(userName: string, password: string): Promise<string> {
+  public authenticate(userName: string): Promise<string | boolean> {
     return Promise.resolve("token");
   }
 

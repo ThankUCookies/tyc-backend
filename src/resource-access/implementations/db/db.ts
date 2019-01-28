@@ -1,6 +1,7 @@
 import { injectable } from "inversify";
 import "reflect-metadata";
 import { Sequelize } from "sequelize-typescript";
+import { TransactionType } from "../../../models/transaction-type";
 import { User } from "../../../models/user";
 import IDatabase from "../../contracts/db";
 
@@ -37,7 +38,7 @@ export class Database implements IDatabase {
         username,
       });
 
-      Database.connecion.addModels([User]);
+      Database.connecion.addModels([User, TransactionType]);
     }
 
     return Database.connecion;
