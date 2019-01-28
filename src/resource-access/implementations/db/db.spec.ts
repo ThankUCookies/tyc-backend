@@ -12,7 +12,13 @@ jest.mock("../../../models/user", () => ({
   User: {},
 }));
 jest.mock("../../../models/transaction-type", () => ({
+  TransactionType: {},
+}));
+jest.mock("../../../models/transaction", () => ({
   Transaction: {},
+}));
+jest.mock("../../../models/transaction-sku", () => ({
+  TransactionSku: {},
 }));
 
 describe("Database", () => {
