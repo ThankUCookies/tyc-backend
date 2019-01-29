@@ -32,8 +32,7 @@ exports.up = function(db) {
       }
     },
     skuCode: {
-      type: 'int',
-      unsigned: true,
+      type: 'string',
       notNull: true
     },
     createdAt: { type: 'datetime' },
