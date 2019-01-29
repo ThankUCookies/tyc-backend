@@ -5,6 +5,7 @@ import { Transaction } from "../../../models/transaction";
 import { TransactionType } from "../../../models/transaction-type";
 import { User } from "../../../models/user";
 
+import { Event } from "../../../models/event";
 import { TransactionSku } from "../../../models/transaction-sku";
 import IDatabase from "../../contracts/db";
 
@@ -46,6 +47,7 @@ export class Database implements IDatabase {
         TransactionType,
         Transaction,
         TransactionSku,
+        Event,
       ]);
     }
 

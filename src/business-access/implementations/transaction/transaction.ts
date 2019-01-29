@@ -2,6 +2,7 @@ import { inject, injectable } from "inversify";
 import "reflect-metadata";
 import TYPES from "../../../ioc/types";
 
+import { Event } from "../../../models/event";
 import { Transaction } from "../../../models/transaction";
 import { TransactionSku } from "../../../models/transaction-sku";
 import { TransactionType } from "../../../models/transaction-type";
@@ -17,6 +18,10 @@ export class TransactionBusinessAccess implements ITransactionBusinessAccess {
     transactionResourceAccess: ITransactionResourceAccess,
   ) {
     this.transactionResourceAccess = transactionResourceAccess;
+  }
+
+  public async getEvents(): Promise<Event[]> {
+    return await this.transactionResourceAccess.getEvents();
   }
 
   public async getTypes(): Promise<TransactionType[]> {

@@ -20,6 +20,9 @@ jest.mock("../../../models/transaction", () => ({
 jest.mock("../../../models/transaction-sku", () => ({
   TransactionSku: {},
 }));
+jest.mock("../../../models/event", () => ({
+  Event: {},
+}));
 
 describe("Database", () => {
   describe("connect()", () => {

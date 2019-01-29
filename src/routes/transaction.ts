@@ -22,6 +22,19 @@ transactionRoute.get("/types", async (req: Request, res: Response) => {
   }
 });
 
+transactionRoute.get("/events", async (req: Request, res: Response) => {
+  try {
+    const events = await transactionBusinessAccess.getEvents();
+
+    res.json({
+      error: false,
+      events,
+    });
+  } catch (error) {
+    res.json({ error });
+  }
+});
+
 transactionRoute.post(
   "/create",
   [body("typeId").exists()],
