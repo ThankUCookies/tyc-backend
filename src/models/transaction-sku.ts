@@ -18,5 +18,5 @@ export class TransactionSku extends Model<TransactionSku> {
   @Column
   public transactionId: number;
   @Column
-  public skuCode: number;
+  public skuCode: string;
 }
