@@ -101,19 +101,16 @@ transactionRoute.post(
   "/add-skus",
   [body("skuCodes").exists(), 
   body("typeId").exists(), 
-  body("eventId").exists()],
+  body("eventId").exists(),
+  body("dateTime").exists()],
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
-     // set date to IST
-    const today = new Date();
-    today.setHours(today.getUTCHours() + 5);
-    today.setMinutes(today.getUTCMinutes() + 30);
 
     if (errors.isEmpty()) {
       try {
         // TODO: use UTC timestamp
         const transaction = await transactionBusinessAccess.create({
-          dateTime: today,
+          dateTime: req.body.dateTime,
           eventId: req.body.eventId,
           typeId: req.body.typeId,
           userId: req.user.id,
